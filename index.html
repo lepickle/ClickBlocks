@@ -24,7 +24,7 @@
       .bind('EnterFrame', function(){
         // the entire logic
         this.y += 5;
-        if (this.y >= 500)
+        if (this.y >= Crafty.DOM.window.height)
         {
           this.destroy();
           score--;
