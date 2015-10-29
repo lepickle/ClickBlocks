@@ -1,0 +1,43 @@
+<div id="game"></div>
+<script src="crafty-min.js"></script>
+<script>
+  Crafty.init();
+  var g = 0;
+  var x = 0;
+  var score = 0;
+  var t = Crafty.e("2D, DOM, Text")
+  .attr({ x: 0, y: 0 })
+  .text("0")
+  .bind('UpdateScore', function(score){
+    this.text(score);
+  });
+  var b = Crafty.e('2D, Canvas, Color')
+  .attr({x: 0, y: 0, w: 50, h: 50})
+  .color('white')
+  .bind("EnterFrame", function(){
+    // this.y += g += 0.2;
+    ++x;
+    if (x >= 10)
+    {
+      x = 0;
+      var c = Crafty.e('2D, Canvas, Color, Mouse')
+      .attr({x: Crafty.math.randomNumber(0, 600), y: Crafty.math.randomNumber(0, 0), w: 50, h:50})
+      .color('blue')
+      .bind('EnterFrame', function(){
+        // the entire logic
+        this.y += 5;
+        if (this.y >= 500)
+        {
+          this.destroy();
+          score--;
+        }
+        Crafty.trigger('UpdateScore', score);//score update
+      })
+      .bind('Click', function(MouseEvent)
+      {
+        score++;
+        this.destroy();
+      });
+    }
+  });
+</script>
