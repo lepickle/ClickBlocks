@@ -10,7 +10,8 @@
   .text("0")
   .bind('UpdateScore', function(score){
     this.text(score);
-  });
+  })
+  .textFont({ size: '50px', weight: 'bold' });
   var b = Crafty.e('')
   .bind("EnterFrame", function(){
     // this.y += g += 0.2;
