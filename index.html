@@ -15,11 +15,11 @@
   .bind("EnterFrame", function(){
     // this.y += g += 0.2;
     ++x;
-    if (x >= 10)
+    if (x >= 30)
     {
       x = 0;
       var c = Crafty.e('2D, Canvas, Color, Mouse')
-      .attr({x: Crafty.math.randomNumber(0, Crafty.DOM.window.width), y: 0, w: 50, h:50})
+      .attr({x: Crafty.math.randomNumber(0, Crafty.DOM.window.width), y: 0, w: 100, h:100})
       .color('blue')
       .bind('EnterFrame', function(){
         // the entire logic
